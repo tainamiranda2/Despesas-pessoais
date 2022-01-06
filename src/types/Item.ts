@@ -1,8 +1,8 @@
 
 export type Item={
   date: Date;
-  category: String;
-  title: String;
+  category: string;
+  title: string;
   value: number;
 
 }

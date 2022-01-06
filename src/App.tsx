@@ -1,27 +1,35 @@
 import * as React from 'react'
-import {useState} from 'react'
+import {useState, useEffect} from 'react'
 
 import * as C from './App.styles'
 //import './App.css'
 
-import {Item} from './types/Category';
+import {Item} from './types/Item';
 import {Category} from './types/Category';
 
-import {categories} from '../data/category';
-import {items} from './data/Items';
+import {categories} from './data/categories';
+import {items} from './data/items';
 
+import {getCurrentMonth, filterListByMonth} from './Filterhelp/dataFilter'
+const App=()=> {
 
-const function App=()=> {
+const [list, setListe]= useState(items);
 
-const [list, setListe]= useState(items)
-const [currentMonth, setCurrentMonth]=useState();
+const [filteredList, setFilteredList]=useState<Item[]>([]);
 
+const [currentMonth, setCurrentMonth]=useState(getCurrentMonth());
+
+useEffect(()=>{
+ setFilteredList (filterListByMonth(list, currentMonth))
+},[list, currentMonth]);
 
   return (
    <C.Container>
     <C.Header>
-      <C.HeaderText>Sistema financeiro</C.HeaderText>
+      <C.HeaderText>Sistema Financeiro</C.HeaderText>
       <C.Body>
+    
+
     
       </C.Body>
     </C.Header>
