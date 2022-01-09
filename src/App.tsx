@@ -1,24 +1,27 @@
 import * as React from 'react'
-import {useState, useEffect} from 'react'
 
 import * as C from './App.styles'
-//import './App.css'
+import {useState, useEffect} from 'react'
 
 import {Item} from './types/Item';
+
 import {Category} from './types/Category';
 
 import {categories} from './data/categories';
+
 import {items} from './data/items';
 
 import {getCurrentMonth, filterListByMonth} from './Filterhelp/dataFilter'
-const App=()=> {
 
-const [list, setListe]= useState(items);
-
+import {TableArea} from './components/TableArea'
+ const App=()=> {
+//criando o state de list
+const [list, setList]= useState(items);
+//crianod o state para filtrar  list
 const [filteredList, setFilteredList]=useState<Item[]>([]);
 
 const [currentMonth, setCurrentMonth]=useState(getCurrentMonth());
-
+//funçao paraa monitorar e set a list
 useEffect(()=>{
  setFilteredList (filterListByMonth(list, currentMonth))
 },[list, currentMonth]);
@@ -29,11 +32,12 @@ useEffect(()=>{
       <C.HeaderText>Sistema Financeiro</C.HeaderText>
       <C.Body>
     
-
-    
+<TableArea list={filteredList}/>
       </C.Body>
     </C.Header>
    </C.Container>
 
   )
 }
+
+export default App;
