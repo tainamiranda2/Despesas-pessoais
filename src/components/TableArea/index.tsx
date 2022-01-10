@@ -3,6 +3,7 @@ import React from 'react';
 import {Item} from '../../types/Item'
 
 import {TableItem} from '../TableItem'
+
 type Props ={
   list: Item[]
 }
@@ -19,9 +20,10 @@ export const TableArea=({list}:Props)=>{
     </tr>
         </thead>
     <tbody>
+    
     {list.map((item, index)=>(
     <TableItem key={index} item={item}/>  
-    
+
     
     ))}
     
