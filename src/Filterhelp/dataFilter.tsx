@@ -26,7 +26,7 @@ return newList;
 //funçaõ para formata data
 export const formatDate=(date: Date): string =>{
 
-let year.getFullYear();
+let year=date.getFullYear();
 let month=date.getMonth();
 let day=date.getDate();
 

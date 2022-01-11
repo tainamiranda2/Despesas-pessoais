@@ -4,17 +4,16 @@ export const Table =styled.table`
 width: 100%;
 backgroud-color:#FFF;
 padding: 20px;
-box-shadow: 0px 0px 5x #CCC;
+box-shadow: 0px 0px 5px #CCC;
 border-radius: 10px;
 margin-top: 20px;
 
 `;
 
-export const TableHeadColumn=styled.th<{width ?: number}>
-`
-width: ${props => props.width ?`${props.width}px`:'auto'};
+export const TableHeadColumn=styled.th<{width ?: number}>`
+width: ${props => props.width ? `${props.width}px`:'auto'};
 
-padding: 10px 0;
+padding: 10px 0px;
 text-align: left;
 
 `;
