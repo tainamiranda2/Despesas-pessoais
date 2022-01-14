@@ -1,7 +1,5 @@
 import * as React from 'react';
 
-//import App from './App'
-
 import * as C from './App.styles';
 
 import {useState, useEffect} from 'react';
@@ -16,7 +14,9 @@ import {items} from './data/items';
 
 import {getCurrentMonth, filterListByMonth} from './Filterhelp/dataFilter'
 
-import {TableArea} from './components/TableArea'
+import {TableArea} from './components/TableArea';
+
+import {InfoArea} from './components/InfoArea'
 
  const App=()=> {
 //criando o state de list
@@ -31,13 +31,18 @@ useEffect(()=>{
  
 },[list, currentMonth]);
 
+const handleMonthChange=(newMonth: string)=>{
+  setCurrentMonth(newMonth)
+}
+
   return (
    <C.Container>
     <C.Header>
       <C.HeaderText>Sistema Financeiro</C.HeaderText>
         </C.Header>
       <C.Body>
-    
+<InfoArea currentMonth={currentMonth} onMonthChange={handleMonthChange}/>
+
 <TableArea list={filteredList}/>
       
       </C.Body>

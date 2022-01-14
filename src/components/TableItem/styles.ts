@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const TableLine=styled.tr`
-color: blue;
+
 `
 export const TableColumn =styled.td`
 padding: 10px 0;
@@ -12,7 +12,7 @@ export const Category=styled.div<{color:string}>`
 display: inline-block;
 padding: 5px 10px;
 border-radius: 5px;
-color: #FFF;
+color: #fff;
 background-color: ${props=> props.color};
 `;
 
