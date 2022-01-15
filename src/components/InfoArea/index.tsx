@@ -1,19 +1,25 @@
 import React from 'react';
 import * as C from './styles'
 import {formatCurrentMonth} from '../../Filterhelp/dataFilter'
+import {ResumeItem} from '../ResumeItem'
+
 
 type Props ={
   currentMonth: string;
   onMonthChange:(newMonth: string)=> void;
+  income:number;
+  expense:number;
 }
 
 
-export const InfoArea=({currentMonth, onMonthChange}: Props)=>{
+export const InfoArea=({currentMonth, onMonthChange, income, expense}: Props)=>{
 
 const handlePreviMonth=()=>{
 let [year, month]
 =currentMonth.split('-')
+
 let currentDate=new Date(parseInt(year), parseInt(month)-1, 1)
+
 currentDate.setMonth(currentDate.getMonth()-1)
 onMonthChange(`${currentDate.getFullYear()}-${currentDate.getMonth()+1}`)
 
@@ -42,6 +48,12 @@ onMonthChange(`${currentDate.getFullYear()}-${currentDate.getMonth()+1}`)
    </C.MonthArea>
 
    <C.ResumeArea>
+<ResumeItem title="receitas" value={income}/>
+
+<ResumeItem title="Despesas" value={expense}/>
+
+<ResumeItem title="Balanço" value={income-expense}
+color={(income-expense) < 0 ? 'red' :'green'}/>
 
    </C.ResumeArea>
    </C.Container>
